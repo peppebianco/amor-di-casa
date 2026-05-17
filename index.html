@@ -144,7 +144,7 @@
     .hero-content {
       position: relative;
       text-align: center;
-      color: #fff;
+      color: var(--dark);
       padding: 0 24px;
       max-width: 800px;
     }
@@ -805,30 +805,152 @@
     }
     .fade-in.visible { opacity: 1; transform: none; }
 
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      z-index: 201;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--ochre);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── MOBILE MENU ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: var(--white);
+      z-index: 199;
+      padding: 88px 32px 40px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+      transform: translateY(-110%);
+      transition: transform 0.38s cubic-bezier(0.4,0,0.2,1);
+    }
+    .mobile-menu.open { transform: translateY(0); }
+    .mobile-menu ul { list-style: none; }
+    .mobile-menu ul li { border-bottom: 1px solid var(--ochre-light); }
+    .mobile-menu ul a {
+      display: block;
+      padding: 18px 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--dark);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .mobile-menu ul a:active { color: var(--ochre); }
+    .mobile-menu-lang {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .mobile-menu-lang .lang-btn {
+      padding: 8px 20px;
+      border-radius: 20px;
+      border: 1px solid var(--ochre-light);
+      font-size: 0.8rem;
+    }
+    .mobile-menu-lang .lang-btn.active {
+      background: var(--ochre);
+      border-color: var(--ochre);
+      color: #fff;
+    }
+
+    /* ── WHATSAPP FAB ── */
+    .whatsapp-fab {
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      z-index: 200;
+      width: 58px;
+      height: 58px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+      text-decoration: none;
+      font-size: 1.6rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .whatsapp-fab:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+
     /* ── MOBILE ── */
     @media (max-width: 900px) {
-      nav { padding: 16px 24px; }
+      nav { padding: 16px 20px; }
       .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: block; }
       section { padding: 72px 24px; }
-      .intro { grid-template-columns: 1fr; gap: 40px; }
-      .intro-img { aspect-ratio: 4/3; }
-      .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+      .intro { grid-template-columns: 1fr; gap: 36px; }
+      .intro-img { aspect-ratio: 4/3; order: -1; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
       .gallery-item:first-child { grid-column: span 2; }
       .gallery-item:nth-child(5) { grid-column: span 2; }
       .location-inner { grid-template-columns: 1fr; gap: 40px; }
       .location-map { aspect-ratio: 4/3; }
+      .explore-tabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding-bottom: 6px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 8px;
+      }
+      .explore-tabs::-webkit-scrollbar { display: none; }
+      .ex-tab { flex-shrink: 0; }
+      .reviews-summary { gap: 14px; padding: 16px 20px; flex-wrap: wrap; justify-content: center; }
     }
+
     @media (max-width: 600px) {
-      .hero-title { font-size: 2.8rem; }
+      section { padding: 56px 18px; }
+      .hero { min-height: 100svh; min-height: 100vh; }
+      .hero-content { padding: 0 16px; }
+      .hero-badge { gap: 8px; padding: 8px 14px 8px 10px; }
+      .hero-badge-score { font-size: 1.5rem; padding: 3px 8px; }
+      .hero-badge-stars { display: none; }
+      .hero-logo-main { font-size: 2.2rem; letter-spacing: 0.1em; }
+      .hero-logo-line::before, .hero-logo-line::after { max-width: 60px; }
+      .hero-logo-sub { font-size: 0.58rem; letter-spacing: 0.18em; }
+      .hero-title { font-size: 1.1rem; margin-bottom: 24px; }
+      .btn-primary { padding: 13px 28px; font-size: 0.78rem; }
       .btn-outline { display: none; }
-      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; gap: 8px; }
+      .gallery-item,
       .gallery-item:first-child,
-      .gallery-item:nth-child(5) { grid-column: span 1; aspect-ratio: 4/3; }
-      .gallery-item { aspect-ratio: 4/3 !important; }
-      .contact-cards { flex-direction: column; align-items: center; }
-      .intro-stats { gap: 24px; }
+      .gallery-item:nth-child(5) { grid-column: span 1; aspect-ratio: 4/3 !important; }
+      .intro-stats { gap: 12px; flex-wrap: wrap; }
+      .stat { flex: 1; min-width: 60px; }
+      .amenities-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .amenity { padding: 16px; gap: 8px; }
+      .amenity-icon { font-size: 1.5rem; }
+      .explore-grid { grid-template-columns: 1fr; }
+      .reviews-summary { flex-direction: column; align-items: center; text-align: center; padding: 20px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .contact-cards { flex-direction: column; align-items: stretch; }
+      .contact-card { min-width: unset; width: 100%; }
+      .contact-card-value { font-size: 0.85rem; }
+      .lb-prev { left: 6px; padding: 10px 12px; }
+      .lb-next { right: 6px; padding: 10px 12px; }
+      footer { padding: 28px 18px; }
     }
   </style>
 </head>
@@ -837,6 +959,9 @@
 <!-- NAV -->
 <nav id="main-nav">
   <a href="#" class="nav-logo">Amor di Casa</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
   <div class="nav-right">
     <ul class="nav-links">
       <li><a href="#gallery" data-it="Galleria" data-en="Gallery">Galleria</a></li>
@@ -1314,6 +1439,25 @@
   <p>© 2025 <span>Amor di Casa</span> · Monopoli, Puglia · <a href="mailto:amordicasamonopoli@gmail.com" style="color:inherit">amordicasamonopoli@gmail.com</a></p>
 </footer>
 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="#gallery" onclick="closeMobileMenu()" data-it="Galleria" data-en="Gallery">Galleria</a></li>
+    <li><a href="#amenities" onclick="closeMobileMenu()" data-it="Servizi" data-en="Amenities">Servizi</a></li>
+    <li><a href="#explore" onclick="closeMobileMenu()" data-it="Dintorni" data-en="Explore">Dintorni</a></li>
+    <li><a href="#location" onclick="closeMobileMenu()" data-it="Dove siamo" data-en="Location">Dove siamo</a></li>
+    <li><a href="#reviews" onclick="closeMobileMenu()" data-it="Recensioni" data-en="Reviews">Recensioni</a></li>
+    <li><a href="#contact" onclick="closeMobileMenu()" data-it="Contatti" data-en="Contact">Contatti</a></li>
+  </ul>
+  <div class="mobile-menu-lang">
+    <button class="lang-btn active" onclick="setLang('it');closeMobileMenu()">IT</button>
+    <button class="lang-btn" onclick="setLang('en');closeMobileMenu()">EN</button>
+  </div>
+</div>
+
+<!-- WHATSAPP FAB -->
+<a href="https://wa.me/393803152217" class="whatsapp-fab" target="_blank" aria-label="WhatsApp">💬</a>
+
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <button class="lb-close" onclick="closeLightbox()">×</button>
@@ -1327,6 +1471,25 @@
   const nav = document.getElementById('main-nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ── HAMBURGER
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('click', e => {
+    if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+      closeMobileMenu();
+    }
   });
 
   // ── HERO PAN
@@ -1373,6 +1536,15 @@
     if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowLeft') lightboxNav(-1);
     if (e.key === 'ArrowRight') lightboxNav(1);
+  });
+
+  // ── LIGHTBOX TOUCH SWIPE
+  let lbTouchX = 0;
+  const lb = document.getElementById('lightbox');
+  lb.addEventListener('touchstart', e => { lbTouchX = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - lbTouchX;
+    if (Math.abs(dx) > 40) lightboxNav(dx < 0 ? 1 : -1);
   });
 
   // ── EXPLORE TABS
