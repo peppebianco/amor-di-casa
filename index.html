@@ -1558,9 +1558,7 @@
   // ── WHATSAPP
   function openWA(e) {
     e.preventDefault();
-    var cal = String.fromCodePoint(0x1F4C5); // 📅
-    var ppl = String.fromCodePoint(0x1F465); // 👥
-    var msg = "Ciao! Sono interessato ad Amor di Casa a Monopoli.\nVorrei verificare la disponibilità per le seguenti date:\n\n" + cal + " Arrivo: \n" + cal + " Partenza: \n" + ppl + " Ospiti: ";
+    var msg = "*Richiesta disponibilità - Amor di Casa*\n\nCiao! Sono interessato all'appartamento a Monopoli.\n\n- Arrivo: \n- Partenza: \n- N. ospiti: ";
     window.open("https://wa.me/393803152217?text=" + encodeURIComponent(msg), "_blank");
   }
 
