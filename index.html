@@ -1456,7 +1456,7 @@
 </div>
 
 <!-- WHATSAPP FAB -->
-<a href="https://wa.me/393803152217?text=Ciao!%20Sono%20interessato%20ad%20Amor%20di%20Casa%20a%20Monopoli.%20Vorrei%20verificare%20la%20disponibilit%C3%A0%20per%20le%20seguenti%20date%3A%20%0A%0A%F0%9F%93%85%20Arrivo%3A%20%0A%F0%9F%93%85%20Partenza%3A%20%0A%F0%9F%91%A5%20Ospiti%3A%20" class="whatsapp-fab" target="_blank" aria-label="WhatsApp">💬</a>
+<a id="whatsapp-fab" class="whatsapp-fab" target="_blank" aria-label="WhatsApp">💬</a>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
@@ -1554,6 +1554,12 @@
   }
   document.querySelectorAll('.ex-tab').forEach(t => t.addEventListener('click', () => filterExplore(t.dataset.cat)));
   filterExplore('spiagge');
+
+  // ── WHATSAPP LINKS
+  const waMsg = "Ciao! Sono interessato ad Amor di Casa a Monopoli. Vorrei verificare la disponibilità per le seguenti date:\n\n📅 Arrivo: \n📅 Partenza: \n👥 Ospiti: ";
+  const waUrl = "https://wa.me/393803152217?text=" + encodeURIComponent(waMsg);
+  document.getElementById('whatsapp-fab').href = waUrl;
+  document.querySelectorAll('a[href*="wa.me"]').forEach(a => { if (!a.id) a.href = waUrl; });
 
   // ── LANGUAGE TOGGLE
   function setLang(lang) {
