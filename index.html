@@ -1558,8 +1558,15 @@
   // ── WHATSAPP
   function openWA(e) {
     e.preventDefault();
-    var msg = "*Richiesta disponibilità - Amor di Casa*\n\nCiao! Sono interessato all'appartamento a Monopoli.\n\n- Arrivo: \n- Partenza: \n- N. ospiti: ";
-    window.open("https://wa.me/393803152217?text=" + encodeURIComponent(msg), "_blank");
+    var cal = String.fromCodePoint(0x1F4C5);
+    var ppl = String.fromCodePoint(0x1F465);
+    var msg = "Ciao! Sono interessato ad Amor di Casa a Monopoli.\nVorrei verificare la disponibilità per le seguenti date:\n\n" + cal + " Arrivo: \n" + cal + " Partenza: \n" + ppl + " Ospiti: ";
+    var encoded = encodeURIComponent(msg);
+    var deep = "whatsapp://send?phone=393803152217&text=" + encoded;
+    var web  = "https://wa.me/393803152217?text=" + encoded;
+    // prova deep link nativo, fallback web dopo 1s
+    window.location.href = deep;
+    setTimeout(function() { window.open(web, "_blank"); }, 1000);
   }
 
   // ── LANGUAGE TOGGLE
