@@ -654,7 +654,27 @@
     }
     .reviews-stars { color: #f5a623; font-size: 1rem; letter-spacing: 3px; margin: 2px 0; }
     .reviews-count { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.06em; }
-    .booking-logo { height: 28px; opacity: 0.85; margin-left: 12px; }
+    .booking-logo-text {
+      margin-left: 12px;
+      background: #003580;
+      border-radius: 8px;
+      padding: 7px 14px;
+      line-height: 1;
+    }
+    .booking-dot {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: -0.01em;
+    }
+    .booking-com {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #70AAFF;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: -0.01em;
+    }
 
     .reviews-grid {
       display: grid;
@@ -1121,7 +1141,9 @@
           <div class="reviews-stars">★★★★★</div>
           <div class="reviews-count" data-it="Valutazione degli ospiti" data-en="Guest rating">Valutazione degli ospiti</div>
         </div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Booking.com_logo.svg/320px-Booking.com_logo.svg.png" alt="Booking.com" class="booking-logo" />
+        <div class="booking-logo-text">
+        <span class="booking-dot">booking</span><span class="booking-com">.com</span>
+      </div>
       </div>
     </div>
 
