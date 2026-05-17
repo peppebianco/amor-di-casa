@@ -1,0 +1,13 @@
+{
+  "name": "Amor di Casa — Monopoli",
+  "short_name": "Amor di Casa",
+  "description": "Appartamento di design a Monopoli, Puglia",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAF8",
+  "theme_color": "#C8922A",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

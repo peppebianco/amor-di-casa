@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#FAFAF8"/>
+  <rect x="0" y="0" width="512" height="512" fill="url(#bg)"/>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#F4EDE3"/>
+      <stop offset="100%" stop-color="#FAFAF8"/>
+    </radialGradient>
+  </defs>
+
+  <!-- decorative top line -->
+  <line x1="80" y1="168" x2="432" y2="168" stroke="#C8922A" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- AMOR DI CASA -->
+  <text x="256" y="230" text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="62" font-weight="400"
+    fill="#C8922A" letter-spacing="6">AMOR DI</text>
+  <text x="256" y="300" text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="62" font-weight="400"
+    fill="#C8922A" letter-spacing="6">CASA</text>
+
+  <!-- decorative middle line -->
+  <line x1="120" y1="326" x2="392" y2="326" stroke="#C8922A" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- THE HOLIDAY HOUSE -->
+  <text x="256" y="360" text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="22" font-weight="300"
+    fill="#8A8278" letter-spacing="5">THE HOLIDAY HOUSE</text>
+
+  <!-- decorative bottom line -->
+  <line x1="80" y1="384" x2="432" y2="384" stroke="#C8922A" stroke-width="0.8" opacity="0.4"/>
+</svg>
