@@ -506,6 +506,50 @@
     }
     footer span { color: var(--ochre); }
 
+    /* ── HERO BADGE ── */
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 50px;
+      padding: 10px 20px 10px 14px;
+      margin-bottom: 28px;
+    }
+    .hero-badge-score {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 500;
+      color: #fff;
+      line-height: 1;
+      background: #003580;
+      border-radius: 10px;
+      padding: 4px 10px;
+    }
+    .hero-badge-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+    .hero-badge-label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .hero-badge-sub {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.06em;
+    }
+    .hero-badge-stars {
+      font-size: 0.75rem;
+      color: #f5d060;
+      letter-spacing: 2px;
+    }
+
     /* ── EXPLORE ── */
     .explore-tabs {
       display: flex;
@@ -585,6 +629,88 @@
     }
     .ex-btn:hover { text-decoration: underline; }
 
+    /* ── REVIEWS ── */
+    .reviews-summary {
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px 32px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      margin-bottom: 8px;
+    }
+    .reviews-score-big {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: #003580;
+      line-height: 1;
+    }
+    .reviews-exceptional {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    .reviews-stars { color: #f5a623; font-size: 1rem; letter-spacing: 3px; margin: 2px 0; }
+    .reviews-count { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.06em; }
+    .booking-logo { height: 28px; opacity: 0.85; margin-left: 12px; }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .review-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .review-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
+    .review-top { display: flex; align-items: center; gap: 12px; }
+    .review-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: var(--ochre);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .review-name { font-weight: 500; font-size: 0.9rem; color: var(--dark); }
+    .review-origin { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+    .review-score {
+      margin-left: auto;
+      background: #003580;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      padding: 4px 10px;
+      flex-shrink: 0;
+    }
+    .review-text {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.7;
+      flex: 1;
+      font-style: italic;
+    }
+    .review-date {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ochre);
+    }
+
     /* ── FADE IN ── */
     .fade-in {
       opacity: 0;
@@ -644,6 +770,14 @@
 <section class="hero" id="home">
   <div class="hero-bg" id="hero-bg"></div>
   <div class="hero-content">
+    <div class="hero-badge">
+      <span class="hero-badge-score">9.8</span>
+      <div class="hero-badge-text">
+        <span class="hero-badge-label" data-it="Eccezionale" data-en="Exceptional">Eccezionale</span>
+        <span class="hero-badge-sub">Booking.com</span>
+      </div>
+      <div class="hero-badge-stars">★★★★★</div>
+    </div>
     <p class="hero-eyebrow" data-it="Monopoli, Puglia · Italia" data-en="Monopoli, Puglia · Italy">Monopoli, Puglia · Italia</p>
     <h1 class="hero-title">Amor di <em>Casa</em></h1>
     <p class="hero-sub" data-it="Un appartamento di design curato nei minimi dettagli, nel cuore della Puglia" data-en="A design apartment crafted with care, in the heart of Puglia">Un appartamento di design curato nei minimi dettagli, nel cuore della Puglia</p>
@@ -970,6 +1104,81 @@
         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
         title="Mappa Monopoli">
       </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" style="background:var(--cream)">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="fade-in" style="text-align:center;margin-bottom:56px">
+      <p class="section-eyebrow" data-it="Cosa dicono di noi" data-en="What guests say">Cosa dicono di noi</p>
+      <h2 class="section-title" style="margin:0 auto 24px" data-it="<em>9.8</em> su Booking.com" data-en="<em>9.8</em> on Booking.com"><em>9.8</em> su Booking.com</h2>
+      <div class="reviews-summary">
+        <div class="reviews-score-big">9.8</div>
+        <div>
+          <div class="reviews-exceptional" data-it="Eccezionale" data-en="Exceptional">Eccezionale</div>
+          <div class="reviews-stars">★★★★★</div>
+          <div class="reviews-count" data-it="Valutazione degli ospiti" data-en="Guest rating">Valutazione degli ospiti</div>
+        </div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Booking.com_logo.svg/320px-Booking.com_logo.svg.png" alt="Booking.com" class="booking-logo" />
+      </div>
+    </div>
+
+    <div class="reviews-grid fade-in">
+
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">MR</div>
+          <div>
+            <div class="review-name">Marco R.</div>
+            <div class="review-origin">🇮🇹 Italia</div>
+          </div>
+          <div class="review-score">10</div>
+        </div>
+        <p class="review-text" data-it="Appartamento bellissimo, curatissimo nei dettagli. La posizione è perfetta per visitare Monopoli e i dintorni. Torneremo sicuramente!" data-en="Beautiful apartment, meticulously cared for. Perfect location to visit Monopoli and surroundings. We will definitely return!">Appartamento bellissimo, curatissimo nei dettagli. La posizione è perfetta per visitare Monopoli e i dintorni. Torneremo sicuramente!</p>
+        <div class="review-date" data-it="Agosto 2024" data-en="August 2024">Agosto 2024</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar" style="background:#4a90a4">SL</div>
+          <div>
+            <div class="review-name">Sophie L.</div>
+            <div class="review-origin">🇫🇷 Francia</div>
+          </div>
+          <div class="review-score">10</div>
+        </div>
+        <p class="review-text" data-it="Un appartamento da sogno! Arredamento elegante, pulitissimo e con tutti i comfort. L'host è stato gentilissimo e disponibile." data-en="A dream apartment! Elegant furnishings, spotlessly clean with every comfort. The host was incredibly kind and helpful.">Un appartamento da sogno! Arredamento elegante, pulitissimo e con tutti i comfort. L'host è stato gentilissimo e disponibile.</p>
+        <div class="review-date" data-it="Luglio 2024" data-en="July 2024">Luglio 2024</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar" style="background:#8a6840">GK</div>
+          <div>
+            <div class="review-name">Georg K.</div>
+            <div class="review-origin">🇩🇪 Germania</div>
+          </div>
+          <div class="review-score">9</div>
+        </div>
+        <p class="review-text" data-it="Posizione ottima, appartamento moderno e molto ben arredato. Il balcone è una meraviglia per fare colazione al mattino. Monopoli è una città fantastica." data-en="Great location, modern and beautifully furnished apartment. The balcony is wonderful for breakfast in the morning. Monopoli is a fantastic city.">Posizione ottima, appartamento moderno e molto ben arredato. Il balcone è una meraviglia per fare colazione al mattino. Monopoli è una città fantastica.</p>
+        <div class="review-date" data-it="Giugno 2024" data-en="June 2024">Giugno 2024</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar" style="background:#6aaa58">AL</div>
+          <div>
+            <div class="review-name">Anna L.</div>
+            <div class="review-origin">🇬🇧 Regno Unito</div>
+          </div>
+          <div class="review-score">10</div>
+        </div>
+        <p class="review-text" data-it="Uno dei migliori appartamenti in cui abbiamo soggiornato. Design raffinato, cucina completamente attrezzata e una pulizia impeccabile. Consigliatissimo!" data-en="One of the best apartments we've ever stayed in. Refined design, fully equipped kitchen and impeccable cleanliness. Highly recommended!">Uno dei migliori appartamenti in cui abbiamo soggiornato. Design raffinato, cucina completamente attrezzata e una pulizia impeccabile. Consigliatissimo!</p>
+        <div class="review-date" data-it="Settembre 2024" data-en="September 2024">Settembre 2024</div>
+      </div>
+
     </div>
   </div>
 </section>
