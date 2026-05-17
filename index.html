@@ -506,6 +506,85 @@
     }
     footer span { color: var(--ochre); }
 
+    /* ── EXPLORE ── */
+    .explore-tabs {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .ex-tab {
+      padding: 10px 24px;
+      border-radius: 30px;
+      border: 1.5px solid var(--ochre-light);
+      background: transparent;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.22s;
+      letter-spacing: 0.02em;
+    }
+    .ex-tab:hover { border-color: var(--ochre); color: var(--ochre); }
+    .ex-tab.active { background: var(--ochre); border-color: var(--ochre); color: #fff; }
+
+    .explore-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .ex-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+      transition: transform 0.25s, box-shadow 0.25s, opacity 0.3s;
+      display: none;
+    }
+    .ex-card.visible { display: flex; flex-direction: column; }
+    .ex-card:hover { transform: translateY(-5px); box-shadow: 0 10px 36px rgba(0,0,0,0.12); }
+    .ex-card-top {
+      height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+    }
+    .ex-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+    .ex-dist {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ochre);
+      font-weight: 500;
+    }
+    .ex-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+    .ex-desc {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+    .ex-btn {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--ochre);
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+    .ex-btn:hover { text-decoration: underline; }
+
     /* ── FADE IN ── */
     .fade-in {
       opacity: 0;
@@ -550,6 +629,7 @@
     <ul class="nav-links">
       <li><a href="#gallery" data-it="Galleria" data-en="Gallery">Galleria</a></li>
       <li><a href="#amenities" data-it="Servizi" data-en="Amenities">Servizi</a></li>
+      <li><a href="#explore" data-it="Dintorni" data-en="Explore">Dintorni</a></li>
       <li><a href="#location" data-it="Dove siamo" data-en="Location">Dove siamo</a></li>
       <li><a href="#contact" data-it="Contatti" data-en="Contact">Contatti</a></li>
     </ul>
@@ -681,6 +761,194 @@
   </div>
 </section>
 
+<!-- EXPLORE -->
+<section id="explore" style="background:var(--white)">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="fade-in" style="text-align:center;margin-bottom:48px">
+      <p class="section-eyebrow" data-it="Scopri i dintorni" data-en="Explore the area">Scopri i dintorni</p>
+      <h2 class="section-title" style="margin:0 auto 16px" data-it="La tua <em>guida locale</em>" data-en="Your <em>local guide</em>">La tua <em>guida locale</em></h2>
+      <p class="section-text" style="margin:0 auto;text-align:center" data-it="Tutto quello che c'è da vedere e vivere intorno a Monopoli." data-en="Everything to see and experience around Monopoli.">Tutto quello che c'è da vedere e vivere intorno a Monopoli.</p>
+    </div>
+
+    <!-- TABS -->
+    <div class="explore-tabs fade-in">
+      <button class="ex-tab active" data-cat="spiagge">🏖️ <span data-it="Spiagge" data-en="Beaches">Spiagge</span></button>
+      <button class="ex-tab" data-cat="paesi">🏘️ <span data-it="Paesi vicini" data-en="Nearby towns">Paesi vicini</span></button>
+      <button class="ex-tab" data-cat="gastronomia">🍷 <span data-it="Gastronomia" data-en="Food &amp; Wine">Gastronomia</span></button>
+      <button class="ex-tab" data-cat="esperienze">🌿 <span data-it="Esperienze" data-en="Experiences">Esperienze</span></button>
+    </div>
+
+    <!-- CARDS -->
+    <div class="explore-grid fade-in">
+
+      <!-- SPIAGGE -->
+      <div class="ex-card" data-cat="spiagge">
+        <div class="ex-card-top" style="background:linear-gradient(135deg,#a8d8ea,#7bb8cc)">🏖️</div>
+        <div class="ex-card-body">
+          <div class="ex-dist" data-it="5 min a piedi" data-en="5 min walk">5 min a piedi</div>
+          <h3 class="ex-name">Cala Porta Vecchia</h3>
+          <p class="ex-desc" data-it="La spiaggia nel cuore del centro storico. Pittoresca, raccolta e con acque cristalline." data-en="The beach in the heart of the old town. Picturesque, intimate, with crystal-clear water.">La spiaggia nel cuore del centro storico. Pittoresca, raccolta e con acque cristalline.</p>
+          <a class="ex-btn" href="https://maps.google.com/?q=Cala+Porta+Vecchia+Monopoli" target="_blank" data-it="Apri in Maps" data-en="Open in Maps">Apri in Maps →</a>
+        </div>
+      </div>
+
+      <div class="ex-card" data-cat="spiagge">
+        <div class="ex-card-top" style="background:linear-gradient(135deg,#74b9d1,#4a90a4)">🌊</div>
+        <div class="ex-card-body">
+          <div class="ex-dist" data-it="10 min in auto" data-en="10 min by car">10 min in auto</div>
+          <h3 class="ex-name">Spiaggia di Capitolo</h3>
+          <p class="ex-desc" data-it="Lunga spiaggia sabbiosa con acque trasparenti, ideale per famiglie e giornate lunghe." data-en="Long sandy beach with clear water, perfect for families and long days in the sun.">Lunga spiaggia sabbiosa con acque trasparenti, ideale per famiglie e giornate lunghe.</p>
+          <a class="ex-btn" href="https://maps.google.com/?q=Spiaggia+di+Capitolo+Monopoli" target="_blank" data-it="Apri in Maps" data-en="Open in Maps">Apri in Maps →</a>
+        </div>
+      </div>
+
+      <div class="ex-card" data-cat="spiagge">
+        <div class="ex-card-top" style="background:linear-gradient(135deg,#5ba8c4,#3d7d96)">⚓</div>
+        <div class="ex-card-body">
+          <div class="ex-dist" data-it="15 min in auto" data-en="15 min by car">15 min in auto</div>
+          <h3 class="ex-name">Porto Ghiacciolo</h3>
+          <p class="ex-desc" data-it="Baia naturale protetta tra le rocce, acque calme e fondali da snorkeling." data-en="Natural sheltered bay between the rocks, calm water and great snorkelling spots.">Baia naturale protetta tra le rocce, acque calme e fondali da snorkeling.</p>
+          <a class="ex-btn" href="https://maps.google.com/?q=Porto+Ghiacciolo+Monopoli" target="_blank" data-it="Apri in Maps" data-en="Open in Maps">Apri in Maps →</a>
+        </div>
+      </div>
+
+      <div class="ex-card" data-cat="spiagge">
+        <div class="ex-card-top" style="background:linear-gradient(135deg,#4a95b8,#2d6e8a)">🐚</div>
+        <div class="ex-card-body">
+          <div class="ex-dist" data-it="20 min in auto" data-en="20 min by car">20 min in auto</div>
+          <h3 class="ex-name">Spiaggia dei Saraceni</h3>
+          <p class="ex-desc" data-it="Mare turchese e scogliere bianche, una delle calette più suggestive di tutta la costa." data-en="Turquoise sea and white cliffs — one of the most dramatic coves on the coast.">Mare turchese e scogliere bianche, una delle calette più suggestive di tutta la costa.</p>
+          <a class="ex-btn" href="https://maps.google.com/?q=Spiaggia+dei+Saraceni+Monopoli" target="_blank" data-it="Apri in Maps" data-en="Open in Maps">Apri in Maps →</a>
+        </div>
+      </div>
+
+      <!-- PAESI -->
+      <div class="ex-card" data-cat="paesi">
+        <div class="ex-card-top" style="background:linear-gradient(135deg,#f0a500,#c8922a)">🌅</div>
+        <div class="ex-card-body">
+          <div class="ex-dist" data-it="15 min in auto" data-en="15 min by car">15 min in auto</div>
+          <h3 class="ex-name">Polignano a Mare</h3>
+          <p class="ex-desc" data-it="Le famose scogliere sul mare e il borgo medievale che ha ispirato Domenico Modugno." data-en="Famous sea cliffs and a medieval village that inspired Domenico Modugno's Volare.">Le famose scogliere sul mare e il borgo medievale che ha ispirato Domenico Modugno.</p>
+          <a class="ex-btn" href="https://maps.google.com/?q=Polignano+a+Mare" target="_blank" data-it="Apri in Maps" data-en="Open in Maps">Apri in Maps →</a>
+        </div>
+      </div>
+
+      <div class="ex-card" data-cat="paesi">
+        <div class="ex-card-top" style="background:linear-gradient(135deg,#b5936a,#8a6840)">🏠</div>
+        <div class="ex-card-body">
+          <div class="ex-dist" data-it="40 min in auto" data-en="40 min by car">40 min in auto</div>
+          <h3 class="ex-name">Alberobello</h3>
+          <p class="ex-desc" data-it="I trulli, le tipiche costruzioni coniche patrimonio UNESCO: uno spettacolo unico al mondo." data-en="The trulli — UNESCO World Heritage conical stone houses, unique in the world.">I trulli, le tipiche costruzioni coniche patrimonio UNESCO: uno spettacolo unico al mondo.</p>
+          <a class="ex-btn" href="https://maps.google.com/?q=Alberobello" target="_blank" data-it="Apri in Maps" data-en="Open in Maps">Apri in Maps →</a>
+        </div>
+      </div>
+
+      <div class="ex-card" data-cat="paesi">
+        <div class="ex-card-top" style="background:linear-gradient(135deg,#e8e0d0,#c8b89a)">🏛️</div>
+        <div class="ex-card-body">
+          <div class="ex-dist" data-it="25 min in auto" data-en="25 min by car">25 min in auto</div>
+          <h3 class="ex-name">Fasano & Egnazia</h3>
+          <p class="ex-desc" data-it="Sito archeologico di epoca messapica e romana immerso nella macchia mediterranea." data-en="Messapian and Roman archaeological site surrounded by Mediterranean scrubland.">Sito archeologico di epoca messapica e romana immerso nella macchia mediterranea.</p>
+          <a class="ex-btn" href="https://maps.google.com/?q=Egnazia+Fasano" target="_blank" data-it="Apri in Maps" data-en="Open in Maps">Apri in Maps →</a>
+        </div>
+      </div>
+
+      <div class="ex-card" data-cat="paesi">
+        <div class="ex-card-top" style="background:linear-gradient(135deg,#f5f0e8,#d4c9b0)">🤍</div>
+        <div class="ex-card-body">
+          <div class="ex-dist" data-it="55 min in auto" data-en="55 min by car">55 min in auto</div>
+          <h3 class="ex-name">Ostuni</h3>
+          <p class="ex-desc" data-it="La Città Bianca: vicoli imbiancati a calce, panorama sull'ulivi verso il mare." data-en="The White City: whitewashed lanes and sweeping views over olive groves to the sea.">La Città Bianca: vicoli imbiancati a calce, panorama sugli ulivi verso il mare.</p>
+          <a class="ex-btn" href="https://maps.google.com/?q=Ostuni" target="_blank" data-it="Apri in Maps" data-en="Open in Maps">Apri in Maps →</a>
+        </div>
+      </div>
+
+      <!-- GASTRONOMIA -->
+      <div class="ex-card" data-cat="gastronomia">
+        <div class="ex-card-top" style="background:linear-gradient(135deg,#e8b84b,#c8922a)">🐟</div>
+        <div class="ex-card-body">
+          <div class="ex-dist" data-it="5 min a piedi" data-en="5 min walk">5 min a piedi</div>
+          <h3 class="ex-name" data-it="Mercato del pesce" data-en="Fish market">Mercato del pesce</h3>
+          <p class="ex-desc" data-it="Ogni mattina al porto il pescato fresco del giorno. Un rito da non perdere." data-en="Every morning at the harbour — the day's fresh catch. A ritual not to be missed.">Ogni mattina al porto il pescato fresco del giorno. Un rito da non perdere.</p>
+          <a class="ex-btn" href="https://maps.google.com/?q=Porto+di+Monopoli" target="_blank" data-it="Apri in Maps" data-en="Open in Maps">Apri in Maps →</a>
+        </div>
+      </div>
+
+      <div class="ex-card" data-cat="gastronomia">
+        <div class="ex-card-top" style="background:linear-gradient(135deg,#f5d78e,#e8b84b)">🫓</div>
+        <div class="ex-card-body">
+          <div class="ex-dist" data-it="10 min a piedi" data-en="10 min walk">10 min a piedi</div>
+          <h3 class="ex-name" data-it="Focaccerie del centro" data-en="Town focaccerias">Focaccerie del centro</h3>
+          <p class="ex-desc" data-it="La focaccia barese è un must: alta, soffice, con pomodorini e olive. Da provare calda." data-en="Barese focaccia is a must: thick, fluffy, with tomatoes and olives. Best eaten warm.">La focaccia barese è un must: alta, soffice, con pomodorini e olive. Da provare calda.</p>
+          <a class="ex-btn" href="https://maps.google.com/?q=focacceria+Monopoli+BA" target="_blank" data-it="Apri in Maps" data-en="Open in Maps">Apri in Maps →</a>
+        </div>
+      </div>
+
+      <div class="ex-card" data-cat="gastronomia">
+        <div class="ex-card-top" style="background:linear-gradient(135deg,#f0e6d0,#d4b896)">🧀</div>
+        <div class="ex-card-body">
+          <div class="ex-dist" data-it="15 min in auto" data-en="15 min by car">15 min in auto</div>
+          <h3 class="ex-name" data-it="Caseifici locali" data-en="Local dairies">Caseifici locali</h3>
+          <p class="ex-desc" data-it="Burrata e mozzarella prodotte ogni mattina. La Puglia è la capitale mondiale della burrata." data-en="Burrata and mozzarella made fresh every morning. Puglia is the world capital of burrata.">Burrata e mozzarella prodotte ogni mattina. La Puglia è la capitale mondiale della burrata.</p>
+          <a class="ex-btn" href="https://maps.google.com/?q=caseificio+Fasano+Monopoli" target="_blank" data-it="Apri in Maps" data-en="Open in Maps">Apri in Maps →</a>
+        </div>
+      </div>
+
+      <div class="ex-card" data-cat="gastronomia">
+        <div class="ex-card-top" style="background:linear-gradient(135deg,#c8d8a0,#8aaa50)">🫒</div>
+        <div class="ex-card-body">
+          <div class="ex-dist" data-it="30 min in auto" data-en="30 min by car">30 min in auto</div>
+          <h3 class="ex-name" data-it="Frantoi dell'olio" data-en="Olive oil mills">Frantoi dell'olio</h3>
+          <p class="ex-desc" data-it="La Puglia produce il 40% dell'olio d'oliva italiano. Visite e degustazioni nei frantoi storici." data-en="Puglia produces 40% of Italy's olive oil. Visits and tastings at historic mills.">La Puglia produce il 40% dell'olio d'oliva italiano. Visite e degustazioni nei frantoi storici.</p>
+          <a class="ex-btn" href="https://maps.google.com/?q=frantoio+Fasano+Puglia" target="_blank" data-it="Apri in Maps" data-en="Open in Maps">Apri in Maps →</a>
+        </div>
+      </div>
+
+      <!-- ESPERIENZE -->
+      <div class="ex-card" data-cat="esperienze">
+        <div class="ex-card-top" style="background:linear-gradient(135deg,#74c4d4,#3a9cb4)">⛵</div>
+        <div class="ex-card-body">
+          <div class="ex-dist" data-it="Dal porto" data-en="From the harbour">Dal porto</div>
+          <h3 class="ex-name" data-it="Giro in barca" data-en="Boat tour">Giro in barca</h3>
+          <p class="ex-desc" data-it="Tour delle grotte marine e calette inaccessibili via terra. Tramonto in barca da non dimenticare." data-en="Tour of sea caves and coves unreachable by land. A sunset boat trip to remember.">Tour delle grotte marine e calette inaccessibili via terra. Tramonto in barca da non dimenticare.</p>
+          <a class="ex-btn" href="https://maps.google.com/?q=Porto+di+Monopoli" target="_blank" data-it="Apri in Maps" data-en="Open in Maps">Apri in Maps →</a>
+        </div>
+      </div>
+
+      <div class="ex-card" data-cat="esperienze">
+        <div class="ex-card-top" style="background:linear-gradient(135deg,#a8d498,#6aaa58)">🚴</div>
+        <div class="ex-card-body">
+          <div class="ex-dist" data-it="Tutta la zona" data-en="Whole area">Tutta la zona</div>
+          <h3 class="ex-name" data-it="Bike tour tra gli ulivi" data-en="Bike tour through olive groves">Bike tour tra gli ulivi</h3>
+          <p class="ex-desc" data-it="Percorsi cicloturistici tra ulivi millenari, masserie e borghi. Noleggio bici disponibile." data-en="Cycling routes through ancient olive groves, masserie and villages. Bike hire available.">Percorsi cicloturistici tra ulivi millenari, masserie e borghi. Noleggio bici disponibile.</p>
+          <a class="ex-btn" href="https://maps.google.com/?q=bike+tour+Monopoli+Puglia" target="_blank" data-it="Apri in Maps" data-en="Open in Maps">Apri in Maps →</a>
+        </div>
+      </div>
+
+      <div class="ex-card" data-cat="esperienze">
+        <div class="ex-card-top" style="background:linear-gradient(135deg,#e8d0a8,#c8a870)">🏡</div>
+        <div class="ex-card-body">
+          <div class="ex-dist" data-it="30 min in auto" data-en="30 min by car">30 min in auto</div>
+          <h3 class="ex-name" data-it="Masseria experience" data-en="Masseria experience">Masseria experience</h3>
+          <p class="ex-desc" data-it="Degustazione di vino e olio nelle antiche masserie pugliesi. Un tuffo nella tradizione." data-en="Wine and olive oil tasting at ancient Apulian masserie. A dive into tradition.">Degustazione di vino e olio nelle antiche masserie pugliesi. Un tuffo nella tradizione.</p>
+          <a class="ex-btn" href="https://maps.google.com/?q=masseria+Fasano+Puglia" target="_blank" data-it="Apri in Maps" data-en="Open in Maps">Apri in Maps →</a>
+        </div>
+      </div>
+
+      <div class="ex-card" data-cat="esperienze">
+        <div class="ex-card-top" style="background:linear-gradient(135deg,#88c8e8,#4898c0)">🤿</div>
+        <div class="ex-card-body">
+          <div class="ex-dist" data-it="Spiagge locali" data-en="Local beaches">Spiagge locali</div>
+          <h3 class="ex-name">Snorkeling</h3>
+          <p class="ex-desc" data-it="Fondali ricchi di vita marina nelle calette della costa. Porto Ghiacciolo è il posto migliore." data-en="Rich marine life in the coastal coves. Porto Ghiacciolo is the best spot.">Fondali ricchi di vita marina nelle calette della costa. Porto Ghiacciolo è il posto migliore.</p>
+          <a class="ex-btn" href="https://maps.google.com/?q=Porto+Ghiacciolo+Monopoli" target="_blank" data-it="Apri in Maps" data-en="Open in Maps">Apri in Maps →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- LOCATION -->
 <section id="location">
   <div class="location-inner">
@@ -804,6 +1072,14 @@
     if (e.key === 'ArrowLeft') lightboxNav(-1);
     if (e.key === 'ArrowRight') lightboxNav(1);
   });
+
+  // ── EXPLORE TABS
+  function filterExplore(cat) {
+    document.querySelectorAll('.ex-tab').forEach(t => t.classList.toggle('active', t.dataset.cat === cat));
+    document.querySelectorAll('.ex-card').forEach(c => c.classList.toggle('visible', c.dataset.cat === cat));
+  }
+  document.querySelectorAll('.ex-tab').forEach(t => t.addEventListener('click', () => filterExplore(t.dataset.cat)));
+  filterExplore('spiagge');
 
   // ── LANGUAGE TOGGLE
   function setLang(lang) {
